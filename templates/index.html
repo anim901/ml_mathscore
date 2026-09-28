@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f3f5ef">
+	<title>Student Performance | Studywise</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #1d302a;
+			--muted: #65716b;
+			--paper: #f3f5ef;
+			--line: #d9e0d8;
+			--green: #245b48;
+			--coral: #dc684e;
+			--white: #fff;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			background: var(--paper);
+			color: var(--ink);
+			font-family: "DM Sans", "Segoe UI", sans-serif;
+		}
+
+		a { color: inherit; }
+
+		.site-header {
+			width: min(1240px, calc(100% - 64px));
+			height: 84px;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.brand {
+			display: inline-flex;
+			align-items: center;
+			gap: 11px;
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: 700;
+		}
+
+		.brand-mark {
+			width: 34px;
+			height: 34px;
+			display: grid;
+			place-items: center;
+			border-radius: 50%;
+			background: var(--green);
+			color: var(--white);
+			font-family: "Fraunces", Georgia, serif;
+			font-size: 20px;
+		}
+
+		.header-note {
+			color: var(--muted);
+			font-size: 13px;
+			font-weight: 500;
+		}
+
+		main {
+			width: min(1240px, calc(100% - 64px));
+			margin: 0 auto;
+		}
+
+		.hero {
+			min-height: 570px;
+			display: grid;
+			grid-template-columns: 1fr 0.92fr;
+			align-items: center;
+			gap: 7%;
+			padding: 58px 0 62px;
+		}
+
+		.hero-copy { max-width: 570px; }
+
+		.eyebrow {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin: 0 0 22px;
+			color: var(--green);
+			font-size: 12px;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.eyebrow::before {
+			width: 25px;
+			height: 2px;
+			background: var(--coral);
+			content: "";
+		}
+
+		h1 {
+			max-width: 560px;
+			margin: 0;
+			font-family: "Fraunces", Georgia, serif;
+			font-size: clamp(48px, 6vw, 76px);
+			font-weight: 500;
+			line-height: 1.04;
+		}
+
+		h1 span { color: var(--green); }
+
+		.intro {
+			max-width: 470px;
+			margin: 23px 0 30px;
+			color: var(--muted);
+			font-size: 17px;
+			line-height: 1.7;
+		}
+
+		.primary-link {
+			min-height: 54px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 22px;
+			padding: 0 21px;
+			border-radius: 4px;
+			background: var(--coral);
+			color: var(--white);
+			font-size: 14px;
+			font-weight: 700;
+			text-decoration: none;
+			transition: background-color 160ms ease, transform 160ms ease;
+		}
+
+		.primary-link:hover {
+			background: #bd5039;
+			transform: translateY(-2px);
+		}
+
+		.primary-link:focus-visible {
+			outline: 3px solid var(--green);
+			outline-offset: 4px;
+		}
+
+		.primary-link svg { width: 17px; height: 17px; }
+
+		.hero-visual {
+			position: relative;
+			min-width: 0;
+			height: 430px;
+		}
+
+		.hero-visual img {
+			width: 100%;
+			height: 100%;
+			display: block;
+			border-radius: 46% 46% 4px 4px;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		.visual-label {
+			position: absolute;
+			right: -18px;
+			bottom: 24px;
+			width: 184px;
+			padding: 17px 18px;
+			background: var(--white);
+			box-shadow: 0 12px 35px rgb(29 48 42 / 12%);
+		}
+
+		.visual-label strong {
+			display: block;
+			margin-bottom: 4px;
+			color: var(--green);
+			font-family: "Fraunces", Georgia, serif;
+			font-size: 22px;
+			font-weight: 500;
+		}
+
+		.visual-label span { color: var(--muted); font-size: 12px; }
+
+		.details {
+			display: grid;
+			grid-template-columns: 1.15fr 1fr 1fr;
+			border-top: 1px solid var(--line);
+			border-bottom: 1px solid var(--line);
+		}
+
+		.detail {
+			min-height: 126px;
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			padding: 22px 28px;
+			border-right: 1px solid var(--line);
+		}
+
+		.detail:first-child { padding-left: 0; }
+		.detail:last-child { border-right: 0; }
+
+		.detail-number {
+			color: var(--coral);
+			font-family: "Fraunces", Georgia, serif;
+			font-size: 34px;
+			line-height: 1;
+		}
+
+		.detail strong {
+			display: block;
+			margin-bottom: 4px;
+			font-size: 14px;
+		}
+
+		.detail span:last-child {
+			color: var(--muted);
+			font-size: 12px;
+			line-height: 1.5;
+		}
+
+		@media (max-width: 760px) {
+			.site-header, main { width: min(100% - 36px, 560px); }
+			.site-header { height: 70px; }
+			.header-note { display: none; }
+			.hero {
+				min-height: 0;
+				grid-template-columns: 1fr;
+				gap: 38px;
+				padding: 52px 0 42px;
+			}
+			h1 { font-size: clamp(46px, 12vw, 64px); }
+			.intro { font-size: 16px; }
+			.hero-visual { height: min(100vw, 390px); margin-right: 14px; }
+			.visual-label { right: -14px; }
+			.details { grid-template-columns: 1fr; }
+			.detail, .detail:first-child {
+				min-height: 94px;
+				padding: 17px 0;
+				border-right: 0;
+				border-bottom: 1px solid var(--line);
+			}
+			.detail:last-child { border-bottom: 0; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<a class="brand" href="{{ url_for('index') }}" aria-label="Studywise home">
+			<span class="brand-mark" aria-hidden="true">S</span>
+			<span>Studywise</span>
+		</a>
+		<span class="header-note">A clearer view of student outcomes</span>
+	</header>
+
+	<main>
+		<section class="hero" aria-labelledby="page-title">
+			<div class="hero-copy">
+				<p class="eyebrow">Student performance indicator</p>
+				<h1 id="page-title">Understand the score.<br><span>Support the student.</span></h1>
+				<p class="intro">Explore how learning conditions and preparation relate to exam performance, then estimate a student's math score from their profile.</p>
+				<a class="primary-link" href="{{ url_for('predict_datapoint') }}">
+					Start a prediction
+					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path d="M4.5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</a>
+			</div>
+			<div class="hero-visual">
+				<img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=85" alt="Students learning together around a table">
+				<div class="visual-label">
+					<strong>Every learner</strong>
+					<span>has a story behind the score.</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="details" aria-label="Prediction overview">
+			<div class="detail">
+				<span class="detail-number">01</span>
+				<div><strong>Student profile</strong><span>Share a few learning and background details.</span></div>
+			</div>
+			<div class="detail">
+				<span class="detail-number">02</span>
+				<div><strong>Exam context</strong><span>Include reading and writing scores.</span></div>
+			</div>
+			<div class="detail">
+				<span class="detail-number">03</span>
+				<div><strong>Math estimate</strong><span>View a model-based performance prediction.</span></div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
